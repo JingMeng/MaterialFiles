@@ -28,7 +28,7 @@ public class MediaStore {
         if (RootUtils.isRunningAsRoot()) {
             return;
         }
-        MediaScannerConnection.scanFile(AppProvider.requireContext(),
+        MediaScannerConnection.scanFile(AppProvider.requireAppContext(),
                 new String[] { file.getPath() }, null, null);
     }
 

@@ -60,7 +60,7 @@ public class RootFileService extends RemoteFileService {
     private IRemoteFileService launchRemoteInterface() throws RemoteFileSystemException {
         synchronized (mLock) {
             Shell.Interactive shell = getSuShellLocked();
-            Context context = AppProvider.requireContext();
+            Context context = AppProvider.requireAppContext();
             RootJava.cleanupCache(context);
             CountDownLatch latch = new CountDownLatch(1);
             IRemoteFileService[] remoteInterfaceHolder = new IRemoteFileService[1];

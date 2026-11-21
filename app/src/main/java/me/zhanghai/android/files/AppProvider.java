@@ -34,14 +34,14 @@ public class AppProvider extends ContentProvider {
     }
 
     @NonNull
-    public static Context requireContext() {
+    public static Context requireAppContext() {
         return Objects.requireNonNull(sInstance.getContext());
     }
 
     @Override
     public boolean onCreate() {
 
-        Context context = requireContext();
+        Context context = requireAppContext();
 //#ifdef NONFREE
         me.zhanghai.android.files.nonfree.CrashlyticsUtils.init(context);
 //#endif

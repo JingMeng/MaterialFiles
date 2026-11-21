@@ -141,7 +141,7 @@ class LinuxPath extends ByteStringListPath<LinuxPath> implements RootablePath {
     public RootStrategy getRootStrategy() {
         RootStrategy strategy = RootablePath.super.getRootStrategy();
         if (strategy == RootStrategy.PREFER_NO && !EffortlessPermissions.hasPermissions(
-                AppProvider.requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                AppProvider.requireAppContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             return RootStrategy.NEVER;
         }
         return strategy;

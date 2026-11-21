@@ -47,7 +47,7 @@ abstract class PrincipalListLiveData extends MutableLiveData<PrincipalListData> 
                 List<PrincipalItem> principals = getAndroidPrincipals();
                 Set<Integer> androidIds = Functional.map(principals, principal -> principal.id,
                         new HashSet<>());
-                PackageManager packageManager = AppProvider.requireContext().getPackageManager();
+                PackageManager packageManager = AppProvider.requireAppContext().getPackageManager();
                 List<ApplicationInfo> installedApplicationInfos =
                         packageManager.getInstalledApplications(0);
                 Map<Integer, List<ApplicationInfo>> uidApplicationInfoMap = new HashMap<>();

@@ -103,7 +103,7 @@ public interface Settings {
     SettingLiveData<List<BookmarkDirectory>> BOOKMARK_DIRECTORIES =
             new ParcelableListSettingLiveData<>(R.string.pref_key_bookmark_directories,
                     Collections.singletonList(new BookmarkDirectory(
-                            AppProvider.requireContext().getString(
+                            AppProvider.requireAppContext().getString(
                                     R.string.settings_bookmark_directory_screenshots),
                             Paths.get(new File(Environment.getExternalStoragePublicDirectory(
                                     Environment.DIRECTORY_PICTURES),

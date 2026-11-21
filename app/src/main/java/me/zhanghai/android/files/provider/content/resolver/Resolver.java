@@ -169,6 +169,6 @@ public class Resolver {
 
     @NonNull
     public static ContentResolver getContentResolver() {
-        return AppProvider.requireContext().getContentResolver();
+        return AppProvider.requireAppContext().getContentResolver();
     }
 }

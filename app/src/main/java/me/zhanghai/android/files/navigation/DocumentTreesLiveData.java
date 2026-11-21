@@ -34,7 +34,7 @@ public class DocumentTreesLiveData extends LiveData<List<Uri>> {
     }
 
     public void loadValue() {
-        List<Uri> treeUris = DocumentTree.getPersistedTreeUris(AppProvider.requireContext());
+        List<Uri> treeUris = DocumentTree.getPersistedTreeUris(AppProvider.requireAppContext());
         setValue(treeUris);
     }
 }

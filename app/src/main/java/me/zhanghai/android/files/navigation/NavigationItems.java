@@ -113,7 +113,7 @@ public class NavigationItems {
     private static List<NavigationItem> getRootItems() {
         List<NavigationItem> rootItems = new ArrayList<>();
         rootItems.add(new RootDirectoryRootItem());
-        StorageManager storageManager = ContextCompat.getSystemService(AppProvider.requireContext(),
+        StorageManager storageManager = ContextCompat.getSystemService(AppProvider.requireAppContext(),
                 StorageManager.class);
         List<StorageVolume> storageVolumes = StorageManagerCompat.getStorageVolumes(storageManager);
         for (StorageVolume storageVolume : storageVolumes) {
@@ -204,7 +204,7 @@ public class NavigationItems {
     @NonNull
     @Size(2)
     private static List<NavigationItem> getMenuItems() {
-        Context context = AppProvider.requireContext();
+        Context context = AppProvider.requireAppContext();
         return Arrays.asList(
                 new ActivityMenuItem(R.drawable.shared_directory_icon_white_24dp,
                         R.string.navigation_ftp_server, FtpServerActivity.class, context),
@@ -402,7 +402,7 @@ public class NavigationItems {
             super(DocumentFileSystemProvider.getRootPathForTreeUri(treeUri));
 
             mTreeUri = treeUri;
-            mTitle = DocumentTree.getDisplayName(mTreeUri, AppProvider.requireContext());
+            mTitle = DocumentTree.getDisplayName(mTreeUri, AppProvider.requireAppContext());
         }
 
         @DrawableRes

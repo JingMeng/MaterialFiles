@@ -45,7 +45,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected String getDefaultValue(@StringRes int defaultValueRes) {
-            return AppProvider.requireContext().getString(defaultValueRes);
+            return AppProvider.requireAppContext().getString(defaultValueRes);
         }
 
         @NonNull
@@ -78,7 +78,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected Set<String> getDefaultValue(@StringRes int defaultValueRes) {
-            String[] defaultValueArray = AppProvider.requireContext().getResources().getStringArray(
+            String[] defaultValueArray = AppProvider.requireAppContext().getResources().getStringArray(
                     defaultValueRes);
             Set<String> defaultValue = new HashSet<>();
             Collections.addAll(defaultValue, defaultValueArray);
@@ -115,7 +115,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected Integer getDefaultValue(@IntegerRes int defaultValueRes) {
-            return AppProvider.requireContext().getResources().getInteger(defaultValueRes);
+            return AppProvider.requireAppContext().getResources().getInteger(defaultValueRes);
         }
 
         @NonNull
@@ -148,7 +148,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected Long getDefaultValue(@StringRes int defaultValueRes) {
-            String defaultValueString = AppProvider.requireContext().getResources().getString(
+            String defaultValueString = AppProvider.requireAppContext().getResources().getString(
                     defaultValueRes);
             return Long.valueOf(defaultValueString);
         }
@@ -183,7 +183,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected Float getDefaultValue(@DimenRes int defaultValueRes) {
-            return ResourcesCompat.getFloat(AppProvider.requireContext().getResources(),
+            return ResourcesCompat.getFloat(AppProvider.requireAppContext().getResources(),
                     defaultValueRes);
         }
 
@@ -217,7 +217,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected Boolean getDefaultValue(@BoolRes int defaultValueRes) {
-            return AppProvider.requireContext().getResources().getBoolean(defaultValueRes);
+            return AppProvider.requireAppContext().getResources().getBoolean(defaultValueRes);
         }
 
         @NonNull
@@ -257,7 +257,7 @@ interface SettingLiveDatas {
         @NonNull
         @Override
         protected E getDefaultValue(@StringRes int defaultValueRes) {
-            String defaultValueString = AppProvider.requireContext().getString(defaultValueRes);
+            String defaultValueString = AppProvider.requireAppContext().getString(defaultValueRes);
             return mEnumValues[Integer.parseInt(defaultValueString)];
         }
 
@@ -318,7 +318,7 @@ interface SettingLiveDatas {
             if (valueString == null) {
                 return defaultValue;
             }
-            Context context = AppProvider.requireContext();
+            Context context = AppProvider.requireAppContext();
             int value = context.getResources().getIdentifier(valueString, null,
                     context.getPackageName());
             if (value == 0) {
@@ -330,7 +330,7 @@ interface SettingLiveDatas {
         @Override
         public void putValue(@NonNull SharedPreferences sharedPreferences, @NonNull String key,
                              @AnyRes @NonNull Integer value) {
-            String valueString = AppProvider.requireContext().getResources().getResourceName(value);
+            String valueString = AppProvider.requireAppContext().getResources().getResourceName(value);
             sharedPreferences.edit().putString(key, valueString).apply();
         }
     }

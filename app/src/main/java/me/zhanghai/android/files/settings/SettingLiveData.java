@@ -50,7 +50,7 @@ public abstract class SettingLiveData<T> extends LiveData<T>
 
     @NonNull
     private static SharedPreferences getSharedPreferences(@Nullable String nameSuffix) {
-        Context context = AppProvider.requireContext();
+        Context context = AppProvider.requireAppContext();
         if (nameSuffix == null) {
             return PreferenceManager.getDefaultSharedPreferences(context);
         } else {
@@ -63,7 +63,7 @@ public abstract class SettingLiveData<T> extends LiveData<T>
 
     @NonNull
     private static String getKey(@StringRes int keyRes, @Nullable String keySuffix) {
-        String key = AppProvider.requireContext().getString(keyRes);
+        String key = AppProvider.requireAppContext().getString(keyRes);
         if (keySuffix != null) {
             key = key + '_' + keySuffix;
         }
